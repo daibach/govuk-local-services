@@ -101,7 +101,7 @@ class Load_urls extends CI_Controller {
     if($existing_url) {
 
       if($existing_url->url != $row_contents[$url_field]) {
-        $this->urls->update($existing_url->id,$row_contents[$url_field],$existing_url->url);
+        $this->urls->update($existing_url->id,$row_contents[$url_field],$existing_url->url,$import_id);
       }
 
     } else {
@@ -110,7 +110,8 @@ class Load_urls extends CI_Controller {
         $row_contents[$snac_field],
         $row_contents[$lgsl_field],
         $row_contents[$lgil_field],
-        $row_contents[$url_field]
+        $row_contents[$url_field],
+        $import_id
       );
 
     }

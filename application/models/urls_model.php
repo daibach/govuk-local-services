@@ -22,7 +22,7 @@ class Urls_model extends CI_Model {
 
   }
 
-  function create($snac,$lgsl,$lgil,$url) {
+  function create($snac,$lgsl,$lgil,$url,$import_id=0) {
 
     $url_info = parse_url($url);
     $data = array(
@@ -30,13 +30,14 @@ class Urls_model extends CI_Model {
       'lgsl'    => $lgsl,
       'lgil'    => $lgil,
       'url'     => $url,
-      'domain'  => $url_info['host']
+      'domain'  => $url_info['host'],
+      'imported_on' => $import_id
     );
     $this->db->insert('service_urls',$data);
 
   }
 
-  function update($id,$url,$existing_url) {
+  function update($id,$url,$existing_url,$import_id=0) {
 
     $url_info = parse_url($url);
     $data = array(
@@ -46,7 +47,8 @@ class Urls_model extends CI_Model {
       'content_looks_like'    => 0,
       'can_404'               => 0,
       'last_tested'           => '0000-00-00 00:00:00',
-      'overall_status'        => 'unknown'
+      'overall_status'        => 'unknown',
+      'imported_on'           => $import_id
     );
     $this->db->where('id',$id);
     $this->db->update('service_urls',$data);
@@ -54,7 +56,8 @@ class Urls_model extends CI_Model {
     $data = array(
       'url_id'    => $id,
       'original'  => $existing_url,
-      'new'       => $url
+      'new'       => $url,
+      'imported_on' => $import_id
     );
     $this->db->insert('url_history');
 
