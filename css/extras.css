@@ -1,0 +1,4 @@
+tr.archived td { opacity: 0.25; }
+h1 { margin-bottom: 1em;}
+h1 span { font-weight: normal; font-size: 0.6em; line-height: 0.2em; }
+.alert ul { margin-top: 1em;}
