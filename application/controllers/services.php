@@ -40,7 +40,7 @@ class Services extends GOVUK_Controller {
       'page_title'    => "LGSL $lgsl - Service List",
       'breadcrumbs'   => array(
         array('title'=>'Service List','link'=>'services'),
-        array('title'=>"LGSL $lgsl",'link'=>array('services','view',$lgsl))
+        array('title'=>"LGSL $lgsl",'link'=>array('services',$lgsl))
       )
     );
 

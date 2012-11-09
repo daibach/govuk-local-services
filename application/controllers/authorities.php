@@ -40,7 +40,7 @@ class Authorities extends GOVUK_Controller {
       'page_title'    => $authority->snac." ".$authority->name." - Local Authority List",
       'breadcrumbs'   => array(
         array('title'=>'Local Authority List','link'=>'authorities'),
-        array('title'=>$authority->snac." ".$authority->name,'link'=>array('authorities','view',$snac))
+        array('title'=>$authority->snac." ".$authority->name,'link'=>array('authorities',$snac))
       )
     );
 

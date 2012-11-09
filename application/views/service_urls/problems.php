@@ -17,7 +17,7 @@
     <tbody>
   <?php foreach($problem_urls as $url) : ?>
       <tr class="<?php echo will_url_be_used($url->authority_type,$url->provided_district, $url->provided_county, $url->provided_unitary); ?>">
-        <td><a href="<?php echo site_url(array('authorities','view',$url->snac)); ?>"><?php echo $url->snac; ?></a></td>
+        <td><a href="<?php echo site_url(array('authorities',$url->snac)); ?>"><?php echo $url->snac; ?></a></td>
         <td><?php echo $url->authority; ?> (<?php echo $url->authority_type; ?>)</td>
         <td><a href="<?php echo site_url(array('services','views',$url->lgsl)); ?>" title="<?php echo $url->service; ?>"><?php echo $url->lgsl; ?></a></td>
         <td><?php echo $url->interaction_short.' ('.$url->lgil.')'?></td>

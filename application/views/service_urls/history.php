@@ -33,7 +33,7 @@
         <tbody>
           <tr>
             <td><strong>Service</strong></td>
-            <td><a href="<?php echo site_url(array('services','view',$url->lgsl));?>"><?php echo $url->description; ?> (<?php echo $url->lgsl; ?>)</a></td>
+            <td><a href="<?php echo site_url(array('services',$url->lgsl));?>"><?php echo $url->description; ?> (<?php echo $url->lgsl; ?>)</a></td>
           </tr>
           <tr>
             <td><strong>Action</strong></td>
@@ -41,7 +41,7 @@
           </tr>
           <tr>
             <td><strong>Authority</strong></td>
-            <td><a href="<?php echo site_url(array('authorities','view',$url->snac));?>"><?php echo $url->snac; ?> <?php echo $url->authority_name; ?></a> (<?php echo $url->authority_type; ?>)</td>
+            <td><a href="<?php echo site_url(array('authorities',$url->snac));?>"><?php echo $url->snac; ?> <?php echo $url->authority_name; ?></a> (<?php echo $url->authority_type; ?>)</td>
           </tr>
         </tbody>
       </table>

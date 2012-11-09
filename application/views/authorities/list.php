@@ -13,7 +13,7 @@
   <tbody>
 <?php foreach($authorities as $council) : ?>
     <tr>
-      <td><a href="<?php echo site_url(array('authorities','view',$council->snac)); ?>"><?php echo $council->snac; ?></a></td>
+      <td><a href="<?php echo site_url(array('authorities',$council->snac)); ?>"><?php echo $council->snac; ?></a></td>
       <td><?php echo $council->name; ?></td>
       <td><?php echo $council->type; ?></td>
       <td><?php echo $council->postcode; ?></td>
