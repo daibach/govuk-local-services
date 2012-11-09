@@ -95,6 +95,8 @@ class Load_urls extends CI_Controller {
     $lgil_field = 5;
     $url_field  = 6;
 
+    if($row_contents[$snac_field] != '') {
+
     $existing_url = $this->urls->get_url_for_lgil($row_contents[$snac_field], $row_contents[$lgsl_field], $row_contents[$lgil_field]);
     if($existing_url) {
 
@@ -111,6 +113,7 @@ class Load_urls extends CI_Controller {
         $row_contents[$url_field]
       );
 
+    }
     }
 
 
