@@ -139,11 +139,9 @@ class Urls_model extends CI_Model {
     if($http_status != 200) {
       $data['overall_status'] = 'warning';
     }
+    $data['content_looks_like'] = $looks_like;
     if($looks_like > 0) {
-      $data['content_looks_like'] = 404;
       $data['overall_status'] = 'warning';
-    } else {
-      $data['content_looks_like'] = 200;
     }
     if($jumbled_http_status == 404) {
       $data['can_404'] = TRUE;
