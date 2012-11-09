@@ -73,7 +73,8 @@ $autoload['helper'] = array(
   'url',
   'form',
   'text',
-  'formatting'
+  'formatting',
+  'string'
 );
 
 
