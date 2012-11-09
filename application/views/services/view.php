@@ -1,6 +1,23 @@
 <h1><?php echo $service->description; ?> (LGSL <?php echo $service->id; ?>)</h1>
 
-<p><strong>Service provided by:</strong> <?php echo format_providing_tiers($service->provided_district, $service->provided_county, $service->provided_unitary); ?></p>
+<div class="well">
+  <table class="table">
+    <thead>
+      <tr class="hide">
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Service provided by</strong></td>
+        <td><?php echo format_providing_tiers($service->provided_district, $service->provided_county, $service->provided_unitary); ?></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr/>
 
 <ul class="nav nav-pills">
   <li class="active"><a href="#urllist">Provided URLs</a></li>
