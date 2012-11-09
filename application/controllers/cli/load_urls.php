@@ -28,21 +28,10 @@ class Load_urls extends CI_Controller {
       $import_id = $this->_register_new_import();
       $filename = $this->_download_file($import_id);
       $this->_process_csv($filename,$import_id);
-      $this->trigger_url_checking();
+      $this->imports->queue_url_check($import_id);
 
     } else {
       die();
-    }
-
-  }
-
-  function trigger_url_checking() {
-
-    $local_services = $this->services->all();
-    if($local_services) {
-      foreach($local_services as $s) {
-        $this->services->request_url_checks_for_service($s->id);
-      }
     }
 
   }

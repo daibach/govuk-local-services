@@ -59,7 +59,7 @@ class Urls_model extends CI_Model {
       'new'       => $url,
       'imported_on' => $import_id
     );
-    $this->db->insert('url_history');
+    $this->db->insert('url_history',$data);
 
   }
 
@@ -110,6 +110,20 @@ class Urls_model extends CI_Model {
 
     $this->db->where('lgsl',$lgsl);
     $this->db->order_by('snac');
+    $query = $this->db->get('service_urls');
+
+    if($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return FALSE;
+    }
+
+  }
+
+  function get_urls_for_import($import) {
+
+    $this->db->where('imported_on',$import);
+    $this->db->order_by('lgsl');
     $query = $this->db->get('service_urls');
 
     if($query->num_rows() > 0) {
