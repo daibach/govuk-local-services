@@ -1,5 +1,9 @@
 <h1>Problem URLs</h1>
 
+<div class="alert alert-info"><span class="lead"><strong>Number of URLs with problems: </strong> <?php echo sizeof($problem_urls);?></span></div>
+
+<hr/>
+
 <?php if($problem_urls) :?>
 
   <table class="table table-striped">
