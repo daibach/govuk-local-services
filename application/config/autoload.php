@@ -54,7 +54,6 @@ $autoload['packages'] = array();
 
 $autoload['libraries'] = array(
   'database',
-  'session',
   'encrypt',
   'form_validation'
 );

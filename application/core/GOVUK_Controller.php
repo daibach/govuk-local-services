@@ -13,6 +13,7 @@ class GOVUK_Controller extends CI_Controller {
 
   function __construct() {
     parent::__construct();
+    $this->load->library('session');
     session_start();
     if (SITE_MAINTENANCE) {
       include('maintenance.php');
