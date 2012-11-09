@@ -55,7 +55,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="<?php echo site_url(); ?>"><?php echo SITE_NAME; ?></a>
+          <a class="brand" href="<?php echo site_url(); ?>"><?php echo SITE_NAME; ?> <span>(alpha)</span></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="<?php echo site_url(); ?>">Home</a></li>
@@ -67,20 +67,20 @@
         </div>
       </div>
     </div>
-
-    <div class="container">
-      <?php if(isset($breadcrumbs)) : ?>
-        <div id="breadcrumbs">
-          <ul class="breadcrumb">
-            <li><a href="<?php echo site_url(); ?>">Home</a> <span class="divider">&raquo;</span></li>
-            <?php $breadcrumb_total = sizeof($breadcrumbs)-1; ?>
-            <?php foreach($breadcrumbs as $num=>$b) : ?>
-              <?php if($num == $breadcrumb_total) : ?>
-                <li class="active"><a href="<?php echo site_url($b['link']);?>"><?php echo $b['title'];?></a></li>
-              <?php else : ?>
-                <li><a href="<?php echo site_url($b['link']);?>"><?php echo $b['title'];?></a> <span class="divider">&raquo;</span></li>
-              <?php endif; ?>
-            <?php endforeach; ?>
-          </ul>
-        </div>
-      <?php endif; ?>
+    <div id="page">
+      <div class="container">
+        <?php if(isset($breadcrumbs)) : ?>
+          <div id="breadcrumbs">
+            <ul class="breadcrumb">
+              <li><a href="<?php echo site_url(); ?>">Home</a> <span class="divider">&raquo;</span></li>
+              <?php $breadcrumb_total = sizeof($breadcrumbs)-1; ?>
+              <?php foreach($breadcrumbs as $num=>$b) : ?>
+                <?php if($num == $breadcrumb_total) : ?>
+                  <li class="active"><a href="<?php echo site_url($b['link']);?>"><?php echo $b['title'];?></a></li>
+                <?php else : ?>
+                  <li><a href="<?php echo site_url($b['link']);?>"><?php echo $b['title'];?></a> <span class="divider">&raquo;</span></li>
+                <?php endif; ?>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        <?php endif; ?>

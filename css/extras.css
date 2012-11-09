@@ -2,3 +2,13 @@ tr.archived td { opacity: 0.25; }
 h1 { margin-bottom: 1em;}
 h1 span { font-weight: normal; font-size: 0.6em; line-height: 0.2em; }
 .alert ul { margin-top: 1em;}
+
+.navbar .brand { color: #fff; }
+.navbar .brand span { color: #FF5A27}
+.navbar .brand:hover { color: #999; }
+
+.introduction h1 { margin-bottom: 0.5em;}
+.introduction p { font-size: 1.5em; }
+
+#page { min-height: 300px; }
+.footer { padding: 3em 0; margin: 2em 0 0 0; border-top: #e5e5e5 1px solid; background: #f5f5f5; }
