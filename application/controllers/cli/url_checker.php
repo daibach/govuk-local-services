@@ -38,6 +38,19 @@ class Url_checker extends CI_Controller {
     }
   }
 
+  function spotcheck_lgsl($lgsl) {
+    if(ENVIRONMENT=='development' || $this->input->is_cli_request()) {
+      $this->_test_service($lgsl);
+    }
+  }
+
+  function spotcheck_url($urlid) {
+    if(ENVIRONMENT=='development' || $this->input->is_cli_request()) {
+      $url = $this->urls->find($urlid);
+      $this->_test_url($url);
+    }
+  }
+
   function _test_service($lgsl) {
 
     $urls_to_test = $this->urls->get_urls_for_lgsl($lgsl);
