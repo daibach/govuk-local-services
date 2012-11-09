@@ -238,8 +238,10 @@ class Url_checker extends CI_Controller {
 
       $elements = explode('=',$piece);
 
-      if($this->_ends_with($elements[0],'id') || $this->_ends_with($elements[0],'page')) {
-        $new_query = str_replace($elements[1], date('YmdHis0'), $url_info['query']);
+      if(sizeof($elements)>1) {
+        if($this->_ends_with($elements[0],'id') || $this->_ends_with($elements[0],'page')) {
+          $new_query = str_replace($elements[1], date('YmdHis0'), $url_info['query']);
+        }
       }
 
     }
