@@ -61,6 +61,7 @@
               <li><a href="<?php echo site_url(); ?>">Home</a></li>
               <li><a href="<?php echo site_url('services'); ?>">Service List</a></li>
               <li><a href="<?php echo site_url('authorities'); ?>">Local Authorities List</a></li>
+              <li><a href="<?php echo site_url('service-urls/problem-urls'); ?>">Problem URLs</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

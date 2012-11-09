@@ -40,6 +40,25 @@ class Service_urls extends GOVUK_Controller {
     $this->load->view('service_urls/history', $data);
     $this->load->view('templates/footer');
   }
+
+  public function problem_urls() {
+
+    $page_data = array(
+      'page_title'    => "Problem URLs - Service URLs",
+      'breadcrumbs'   => array(
+        array('title'=>'Service URLs','link'=>'services'),
+        array('title'=>"Problem URLs",'link'=>array('urls','problem-list'))
+      )
+    );
+
+    $data = array(
+      'problem_urls' => $this->urls->get_problem_urls()
+    );
+
+    $this->load->view('templates/header', $page_data);
+    $this->load->view('service_urls/problems', $data);
+    $this->load->view('templates/footer');
+  }
 }
 
 /* End of file services.php */
