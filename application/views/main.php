@@ -1,6 +1,6 @@
 <div class="introduction">
   <h1>GOV.UK Local Services Explorer</h1>
-  <p class="intro">An app to explore and track the URLs used for local services on GOV.UK</p>
+  <p class="lead">An app to explore and track the URLs used for local services on GOV.UK</p>
 </div>
 
 <hr/>
