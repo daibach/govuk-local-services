@@ -17,7 +17,7 @@
       <td><?php echo $council->name; ?></td>
       <td><?php echo $council->type; ?></td>
       <td><?php echo $council->postcode; ?></td>
-      <td><a href="<?php echo $council->homepage_url; ?>"><?php echo $council->homepage_url; ?></a></td>
+      <td><a href="<?php echo $council->homepage_url; ?>"><?php echo ellipsize($council->homepage_url,60, 0.4); ?></a></td>
     </tr>
 <?php endforeach; ?>
   </tbody>
