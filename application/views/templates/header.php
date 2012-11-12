@@ -22,11 +22,6 @@
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/extras.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
     <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -46,7 +41,6 @@
       })();
     </script>
     <?php endif; ?>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
 
   </head>
@@ -55,14 +49,25 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
+          <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
           <a class="brand" href="<?php echo site_url(); ?>"><?php echo SITE_NAME; ?> <span>(alpha)</span></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="<?php echo site_url(); ?>">Home</a></li>
-              <li><a href="<?php echo site_url('services'); ?>">Service List</a></li>
-              <li><a href="<?php echo site_url('authorities'); ?>">Local Authorities List</a></li>
-              <li><a href="<?php echo site_url('service-urls/problem-urls'); ?>">Problem URLs</a></li>
-              <li><a href="<?php echo site_url('check-queues'); ?>">Queue Status</a></li>
+              <li><a href="<?php echo site_url('services'); ?>">Services</a></li>
+              <li><a href="<?php echo site_url('authorities'); ?>">Local Authorities</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="<?php echo site_url('service-urls/problem-urls'); ?>">Problem URLs</a></li>
+                  <li><a href="<?php echo site_url('check-queues'); ?>">Queue Status</a></li>
+                </ul>
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
