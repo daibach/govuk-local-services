@@ -2,21 +2,20 @@
 
 class Service_urls extends GOVUK_Controller {
 
-  function __construct()
-  {
+  function __construct() {
     parent::__construct();
     $this->load->model('urls_model','urls');
     $this->load->model('services_model','services');
   }
 
-  public function index()
-  {
+  public function index() {
 
     show_404(current_url());
 
   }
 
   public function history($id) {
+    $this->_do_cache();
 
     $url = $this->urls->find_info($id);
 
@@ -42,6 +41,7 @@ class Service_urls extends GOVUK_Controller {
   }
 
   public function problem_urls() {
+    $this->_do_cache();
 
     $page_data = array(
       'page_title'    => "Problem URLs - Service URLs",

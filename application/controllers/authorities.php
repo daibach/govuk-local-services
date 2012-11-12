@@ -2,16 +2,15 @@
 
 class Authorities extends GOVUK_Controller {
 
-  function __construct()
-  {
+  function __construct()  {
     parent::__construct();
     $this->load->model('services_model','services');
     $this->load->model('urls_model','urls');
     $this->load->model('authorities_model','authorities');
   }
 
-  public function index()
-  {
+  public function index() {
+    $this->_do_cache();
 
     $page_data = array(
       'page_title'    => 'Local Authority List',
@@ -31,6 +30,7 @@ class Authorities extends GOVUK_Controller {
   }
 
   public function view($snac) {
+    $this->_do_cache();
 
     $authority = $this->authorities->find_by_snac($snac);
 

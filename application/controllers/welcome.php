@@ -5,6 +5,7 @@ class Welcome extends GOVUK_Controller {
   public function index()
   {
 
+    $this->_do_cache();
     $this->load->view('templates/header');
     $this->load->view('main');
     $this->load->view('templates/footer');
