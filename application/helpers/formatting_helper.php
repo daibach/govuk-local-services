@@ -99,5 +99,28 @@ function is_service_valid($authority_type,$service_is_district,$service_is_count
   }
 
 }
+
+function format_licence_type($type) {
+  switch($type) {
+    case "non-local": return "Non-local, external"; break;
+    case "licence-app-local": return "GOV.UK local"; break;
+    case "licence-app-comp": return "GOV.UK non-local"; break;
+    default: return "Unknown";
+  }
+}
+
+function format_licence_problem($type,$identifier,$transaction_url) {
+  $problems = array();
+
+  if(strpos($identifier,'-') === false || $identifier == '') {
+    array_push($problems,'invalid licence id');
+  }
+
+  if($type=='non-local' && $transaction_url == '') {
+    array_push($problems,'missing transaction url');
+  }
+
+  return implode(' / ',$problems);
+}
 /* End of file formatting_helper.php */
 /* Location: ./application/helpers/formatting_helper.php */
