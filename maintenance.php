@@ -42,8 +42,8 @@ h2 { color: #Fff; font-size: 1.5em; font-weight: bold; margin-bottom: 10px;}
 <div id="content">
   <div class="content">
     <h2>Website Maintenance</h2>
-    <p>We are currently undertaking maintenance on the <?php echo SITE_NAME; ?> website.</p>
-    <p>We apologise for any inconvenience this may cause.</p>
+    <p>I am currently undertaking maintenance on the <?php echo SITE_NAME; ?> website.</p>
+    <p>I apologise for any inconvenience this may cause.</p>
   </div>
   <div class="clear"></div>
 </div>
