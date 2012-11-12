@@ -12,6 +12,21 @@ class Welcome extends GOVUK_Controller {
 
   }
 
+  public function about() {
+    $this->_do_cache();
+
+    $page_data = array(
+      'page_title'    => 'About',
+      'breadcrumbs'   => array(
+        array('title'=>'About','link'=>'about')
+      )
+    );
+
+    $this->load->view('templates/header',$page_data);
+    $this->load->view('about');
+    $this->load->view('templates/footer');
+  }
+
   public function check_queues() {
 
     $this->load->model('queues_model','queues');

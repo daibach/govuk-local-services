@@ -24,4 +24,4 @@
 <p>The app also keeps a record of the changes to the URLs, and produces lists of URLs that have
   problems.</p>
 
-<p>I'll add more documentation to explain the output of each of the reports soon.</p>
+<p>You can find out a bit more about this app on the <a href="<?php echo site_url('about');?>">about page</a>.</p>

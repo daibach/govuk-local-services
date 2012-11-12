@@ -59,10 +59,11 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="<?php echo site_url(); ?>">Home</a></li>
+              <li><a href="<?php echo site_url('about'); ?>">About</a></li>
               <li><a href="<?php echo site_url('services'); ?>">Services</a></li>
               <li><a href="<?php echo site_url('authorities'); ?>">Local Authorities</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
+                <a href="<?php echo site_url('about#thereports'); ?>" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="<?php echo site_url('service-urls/problem-urls'); ?>">Problem URLs</a></li>
                   <li><a href="<?php echo site_url('check-queues'); ?>">Queue Status</a></li>
