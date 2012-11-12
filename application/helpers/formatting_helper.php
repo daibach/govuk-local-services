@@ -25,7 +25,7 @@ if ( ! function_exists('format_providing_tiers')) {
     $provided_by = array();
     if($district) { array_push($provided_by,'district'); }
     if($county) { array_push($provided_by,'county'); }
-    if($unitary) { array_push($provided_by,'unitary'); }
+    if($unitary) { array_push($provided_by,'unitary, london borough, metropolitan district'); }
     return implode(', ',$provided_by);
   }
 }
