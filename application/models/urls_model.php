@@ -74,7 +74,9 @@ class Urls_model extends CI_Model {
   }
 
   function find_info($id) {
-    $this->db->select('service_urls.*, local_services.*, '.
+    $this->db->select('service_urls.*, local_services.description, '.
+      'local_services.provided_district, local_services.provided_county, '.
+      'local_services.provided_unitary, '.
       'local_interactions.name as interaction_name, '.
       'local_authorities.name as authority_name, ' .
       'local_authorities.type as authority_type');
