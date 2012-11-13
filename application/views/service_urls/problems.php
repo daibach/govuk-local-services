@@ -23,7 +23,7 @@
       <tr class="<?php echo will_url_be_used($url->authority_type,$url->provided_district, $url->provided_county, $url->provided_unitary); ?>">
         <td><a href="<?php echo site_url(array('authorities',$url->snac)); ?>"><?php echo $url->snac; ?></a></td>
         <td><?php echo $url->authority; ?> (<?php echo $url->authority_type; ?>)</td>
-        <td><a href="<?php echo site_url(array('services','views',$url->lgsl)); ?>" title="<?php echo $url->service; ?>"><?php echo $url->lgsl; ?></a></td>
+        <td><a href="<?php echo site_url(array('services',$url->lgsl)); ?>" title="<?php echo $url->service; ?>"><?php echo $url->lgsl; ?></a></td>
         <td><?php echo $url->interaction_short.' ('.$url->lgil.')'?></td>
         <td><a href="<?php echo $url->url; ?>" title="<?php echo $url->url; ?>"><?php echo ellipsize($url->url,35, 0.4); ?></a></td>
         <td>
