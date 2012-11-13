@@ -134,6 +134,7 @@ class Url_checker extends CI_Controller {
       CURLOPT_CONNECTTIMEOUT => 14,
       CURLOPT_TIMEOUT => 21,
       CURLOPT_POST => FALSE,
+      CURLOPT_SSL_VERIFYPEER => false,
       CURLOPT_USERAGENT => $useragent,
       CURLOPT_URL => $url));
 
