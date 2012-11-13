@@ -87,17 +87,6 @@ class Load_licences extends CI_Controller {
     foreach($licences as $licence) {
       $details = $this->_process_licence_information($licence->slug);
       if($details) {
-        if($details['licence_type'] == 'non-local') {
-          if($details['transaction_url'] == '') {
-            $details['overall_status'] = 'warning';
-          } else {
-            $details['overall_status'] = 'ok';
-          }
-        }
-
-        if(strpos($details['identifier'],'-') === false) {
-          $details['overall_status'] = 'warning';
-        }
 
         $this->licences->update(
           $licence->id,
@@ -145,9 +134,23 @@ class Load_licences extends CI_Controller {
           $licence_details['licence_type'] = 'licence-app-comp';
           $licence_details['overall_status'] = 'ok';
         }
+        if($details->continuation_link != '') {
+          $licence_details['transaction_url'] = $details->continuation_link;
+          $licence_details['overall_status'] = 'warning';
+        }
       } else {
         $licence_details['transaction_url'] = $details->continuation_link;
         $licence_details['licence_type'] = 'non-local';
+
+        if($licence_details['transaction_url'] == '') {
+          $licence_details['overall_status'] = 'warning';
+        } else {
+          $licence_details['overall_status'] = 'ok';
+        }
+      }
+
+      if(strpos($licence_details['identifier'],'-') === false) {
+        $licence_details['overall_status'] = 'warning';
       }
     } catch (Exception $e) {
       return false;

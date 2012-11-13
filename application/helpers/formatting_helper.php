@@ -133,6 +133,10 @@ function format_licence_problem($type,$identifier,$transaction_url) {
     array_push($problems,'missing transaction url');
   }
 
+  if($type!='non-local' && $transaction_url != '') {
+    array_push($problems,'licence app overridden');
+  }
+
   return implode(' / ',$problems);
 }
 /* End of file formatting_helper.php */
