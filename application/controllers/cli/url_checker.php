@@ -118,9 +118,6 @@ class Url_checker extends CI_Controller {
     );
 
 
-//print_r($url_info);
-//echo('<hr/>');
-
   }
 
   function _fetch_url($url) {
@@ -134,8 +131,8 @@ class Url_checker extends CI_Controller {
       CURLOPT_COOKIESESSION => TRUE,
       CURLOPT_FOLLOWLOCATION => TRUE,
       CURLOPT_COOKIEJAR => "/dev/null",
-      CURLOPT_CONNECTTIMEOUT => 7,
-      CURLOPT_TIMEOUT => 14,
+      CURLOPT_CONNECTTIMEOUT => 14,
+      CURLOPT_TIMEOUT => 21,
       CURLOPT_POST => FALSE,
       CURLOPT_USERAGENT => $useragent,
       CURLOPT_URL => $url));
@@ -143,12 +140,18 @@ class Url_checker extends CI_Controller {
 
     $html = curl_exec($ch);
     $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curl_error = curl_errno($ch);
 
     curl_close($ch);
+
+    if($curl_error == 28) {
+      $http_status = 598;
+    }
 
     return array(
       'content'     => $html,
       'http_status' => $http_status,
+      'curl_error'  => $curl_error,
       'analysis'    => $this->_analyse_html_for_404($html)
     );
 

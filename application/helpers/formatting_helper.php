@@ -56,6 +56,7 @@ function get_status_description($status) {
     case 404  : return "Not Found"; break;
     case 410  : return "Gone"; break;
     case 500  : return "Error"; break;
+    case 598  : return "Timeout"; break;
     default:    return "Unknown";
   }
 }
