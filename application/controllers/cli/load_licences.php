@@ -27,6 +27,7 @@ class Load_licences extends CI_Controller {
       $import_id = $this->_register_new_import();
       $filename = $this->_download_file($import_id);
       $this->_process_csv($filename,$import_id);
+      $this->reimport_licence_details();
 
     } else {
       die();
@@ -115,7 +116,7 @@ class Load_licences extends CI_Controller {
   }
 
   function _process_licence_information($slug) {
-    $api_base = "https://betademo:nottobes@www.preview.alphagov.co.uk/api/";
+    $api_base = "https://www.gov.uk/api/";
     $licence_content = $this->_fetch_url($api_base.$slug.".json");
 
     $licence_details = array(
