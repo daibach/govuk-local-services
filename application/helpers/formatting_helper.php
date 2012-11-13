@@ -23,9 +23,9 @@
 if ( ! function_exists('format_providing_tiers')) {
   function format_providing_tiers($district,$county,$unitary) {
     $provided_by = array();
-    if($district) { array_push($provided_by,'district'); }
-    if($county) { array_push($provided_by,'county'); }
-    if($unitary) { array_push($provided_by,'unitary, london borough, metropolitan district'); }
+    if($district) { array_push($provided_by,'district (DIS)'); }
+    if($county) { array_push($provided_by,'county (CTY)'); }
+    if($unitary) { array_push($provided_by,'unitary (UTA), london borough (LBO), metropolitan district (MTD)'); }
     return implode(', ',$provided_by);
   }
 }
