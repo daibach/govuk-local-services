@@ -123,7 +123,7 @@ class Load_authorities extends CI_Controller {
           $this->_handle_changes($existing_authority,$row_contents,$import_id);
       }
     } else {
-      //Name,Home page URL,Contact page URL,SNAC Code
+      //$snac,$name,$homepage,$contact,$postcode
       $this->authorities->create(
         $row_contents[3],
         $row_contents[0],
@@ -137,11 +137,12 @@ class Load_authorities extends CI_Controller {
 
   function _handle_changes($existing_authority,$import_rows,$import_id) {
 
+    //$id,$name,$homepage,$contact,$postcode
     $this->authorities->update(
       $existing_authority->id,
+      $import_rows[0],
       $import_rows[1],
       $import_rows[2],
-      $import_rows[3],
       $import_rows[9]
     );
 
