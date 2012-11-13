@@ -155,7 +155,7 @@ class Urls_model extends CI_Model {
       'last_tested' => date('Y-m-d H:i:s'),
       'overall_status' => 'ok'
     );
-    if($http_status != 200) {
+    if($http_status != 200 && $http_status != 301 && $http_status != 302) {
       $data['overall_status'] = 'warning';
     }
     $data['content_looks_like'] = $looks_like;

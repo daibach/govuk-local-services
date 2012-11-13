@@ -34,6 +34,11 @@ function get_status_result($type,$status) {
   if($type==='http') {
     switch($status) {
       case 200 : return "success"; break;
+      case 301 : return "info"; break;
+      case 302 : return "info"; break;
+      case 400 : return "important"; break;
+      case 401 : return "important"; break;
+      case 403 : return "important"; break;
       case 404 : return "important"; break;
       case 0 : return "default"; break;
       default: return "warning";
@@ -41,6 +46,8 @@ function get_status_result($type,$status) {
   } else {
     switch($status) {
       case 200 : return "important"; break;
+      case 301 : return "info"; break;
+      case 302 : return "info"; break;
       case 404 : return "success"; break;
       case 0 : return "default"; break;
       default: return "warning";
@@ -51,11 +58,16 @@ function get_status_description($status) {
   switch($status) {
     case 0    : return "Unchecked"; break;
     case 200  : return "OK"; break;
+    case 301  : return "Redirect"; break;
+    case 302  : return "Redirect"; break;
     case 400  : return "Bad Request"; break;
+    case 401  : return "Unauthorized"; break;
     case 403  : return "Forbidden"; break;
     case 404  : return "Not Found"; break;
     case 410  : return "Gone"; break;
     case 500  : return "Error"; break;
+    case 502  : return "Error"; break;
+    case 503  : return "Unavailable"; break;
     case 598  : return "Timeout"; break;
     default:    return "Unknown";
   }
