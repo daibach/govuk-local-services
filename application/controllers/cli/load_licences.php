@@ -44,7 +44,7 @@ class Load_licences extends CI_Controller {
   function _download_file($import_id) {
 
     $timestamp = date('Ymd-His');
-    $filename = "services-{$timestamp}-{$import_id}.csv";
+    $filename = "licences-{$timestamp}-{$import_id}.csv";
 
     $ch = curl_init('https://raw.github.com/daibach/govuk-local-services/master/data/licence-slugs.csv');
     $fp = fopen("./assets/importfiles/{$filename}", 'wb');
