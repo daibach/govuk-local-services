@@ -78,6 +78,7 @@
     </div>
     <div id="page">
       <div class="container">
+        <div class="alert-alpha"><strong>ALPHA</strong> - This app is under active development &amp; could be inaccurate or broken</div>
         <?php if(isset($breadcrumbs)) : ?>
           <div id="breadcrumbs">
             <ul class="breadcrumb">

@@ -5,8 +5,6 @@
 
 <hr/>
 
-<div class="alert">This app is a work in progress - probably pre-alpha!</div>
-
 <p><a href="https://www.gov.uk">GOV.UK</a> provides many links to local services run by local
   government in the UK (for example <a href="http://www.gov.uk/pay-council-tax">pay your
   council tax</a>). You can read more about how the links to these services are managed on the

@@ -2,10 +2,6 @@
 
 <div class="alert alert-info"><span class="lead"><strong>Number of licences with problems: </strong> <?php echo sizeof($licences);?></span></div>
 
-<div class="alert alert-error">
-  <h4>WARNING! This is currently using testing data and is inaccurate!</h4>
-</div>
-
 <table class="table table-striped">
   <thead>
     <tr>

@@ -1,9 +1,5 @@
 <h1>Licence List</h1>
 
-<div class="alert alert-error">
-  <h4>WARNING! This is currently using testing data and is inaccurate!</h4>
-</div>
-
 <table class="table table-striped">
   <thead>
     <tr>

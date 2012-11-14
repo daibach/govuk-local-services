@@ -5,8 +5,10 @@ h1 { margin-bottom: 1em;}
 h1 span { font-weight: normal; font-size: 0.6em; line-height: 0.2em; }
 .alert ul { margin-top: 1em;}
 
+.alert-alpha { background: #D43783; color: #fff; border: 0; padding: 8px 35px 8px 14px; margin-bottom: 20px; border-radius: 4px; }
+
 .navbar .brand { color: #fff; }
-.navbar .brand span { color: #FF5A27}
+.navbar .brand span { color: #D43783; }
 .navbar .brand:hover { color: #999; }
 
 .introduction h1 { margin-bottom: 0.5em;}
