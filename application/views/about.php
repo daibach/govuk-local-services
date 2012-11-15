@@ -20,6 +20,8 @@
   <li><a href="#thereports">The reports</a></li>
   <li><a href="#dataupdates">Data updates</a></li>
   <li><a href="#limitations">Limitations</a></li>
+  <li><a href="#nations">Wales/Scotland/Northern Ireland</a></li>
+  <li><a href="#licences">Licences</a></li>
 </ul>
 
 <hr/>
@@ -103,6 +105,15 @@
 </ul>
 
 <hr/>
+<h2 id="nations">Wales / Scotland / Northern Ireland</h2>
+<p>You might notice that there are no local authorities from Wales, Scotland
+  or Northern Ireland in this dataset. Unfortunately, councils from these
+  countries don't participate in the Local Directgov programme and so we don't
+  get links for those services.</p>
+
+<p>We're looking at how best to curate links from those councils.</p>
+
+<hr/>
 <h2 id="limitations">Limitations</h2>
 <p>This app has a couple of limitations:</p>
 <ul>
@@ -111,3 +122,10 @@
   <li>It's running from my own personal server, so sorry if it's slow!</li>
   <li>There isn't any monitoring to check that automated things are running</li>
 </ul>
+
+<hr/>
+<h2 id="licences">Licences</h2>
+<p>Tests and reports for licences are much more experimental than those for
+  local services. They also don't use live data as information isn't available
+  to download/access via an API at the moment.</p>
+<p>I'll update this documentation when licences have received some more love.</p>
