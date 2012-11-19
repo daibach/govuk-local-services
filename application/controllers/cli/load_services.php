@@ -86,13 +86,14 @@ class Load_services extends CI_Controller {
         $providing_tiers['unitary']
       );
     } else {
-      $this->services->create(
+      $newservice = $this->services->create(
         $row_contents[0],
         $row_contents[1],
         $providing_tiers['district'],
         $providing_tiers['county'],
         $providing_tiers['unitary']
       );
+      $this->services->request_url_checks_for_service($newservice);
     }
 
   }
