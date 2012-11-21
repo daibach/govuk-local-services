@@ -76,7 +76,7 @@
         <td>&nbsp;</td>
         <td>&nbsp;</td>
       <?php endif; ?>
-      <td><a href="<?php echo site_url(array('service-urls','history',$url->url_id)); ?>" class="btn">History</a><!-- <a href="#" class="btn btn-warning">Report</a>--></td>
+      <td><a href="<?php echo site_url(array('service-urls','history',$url->url_id)); ?>" class="btn">History</a></td>
     </tr>
 <?php endforeach; ?>
   </tbody>
