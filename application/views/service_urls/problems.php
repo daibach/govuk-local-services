@@ -31,6 +31,8 @@
             <span class="label label-important">Is <?php echo $url->http_status; ?></span>
           <?php elseif($url->content_looks_like != 200) : ?>
             <span class="label label-warning">Looks like <?php echo $url->content_looks_like; ?></span>
+          <?php elseif($url->has_reported_problems) : ?>
+            <span class="label label-info">Reported problem</span>
           <?php else : ?>
             <span class="label label-error">Unknown</span>
           <?php endif; ?>

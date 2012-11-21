@@ -48,7 +48,8 @@ class Urls_model extends CI_Model {
       'can_404'               => 0,
       'last_tested'           => '0000-00-00 00:00:00',
       'overall_status'        => 'unknown',
-      'imported_on'           => $import_id
+      'imported_on'           => $import_id,
+      'user_reported_problem' => 0
     );
     $this->db->where('id',$id);
     $this->db->update('service_urls',$data);
@@ -60,6 +61,33 @@ class Urls_model extends CI_Model {
       'imported_on' => $import_id
     );
     $this->db->insert('url_history',$data);
+
+    $data = array(
+      'status'    => 'superseded'
+    );
+    $this->db->where('url_id',$id);
+    $this->db->where('status','open');
+    $this->db->update('url_problems',$data);
+
+  }
+
+  function report($id,$type,$notes,$alternative_url) {
+
+    $data = array(
+      'url_id'          => $id,
+      'report_type'     => $type,
+      'status'          => 'open',
+      'notes'           => $notes,
+      'alternative_url' => $alternative_url
+    );
+    $this->db->insert('url_reports',$data);
+
+    $data = array(
+      'overall_status'  => 'warning',
+      'has_reported_problems' => TRUE
+    );
+    $this->db->where('id',$id);
+    $this->db->update('service_urls',$data);
 
   }
 
@@ -243,6 +271,19 @@ class Urls_model extends CI_Model {
       return FALSE;
     }
   }
+
+  function get_reports($id) {
+    $this->db->where('url_id',$id);
+    $this->db->order_by('created_date','desc');
+    $query = $this->db->get('url_reports');
+
+    if($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return FALSE;
+    }
+  }
+
 
   function get_problem_urls() {
 

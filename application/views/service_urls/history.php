@@ -1,3 +1,11 @@
+<?php
+  if ($this->session->flashdata('report_success')) {
+    echo "<div class='alert alert-success'>\n";
+    echo $this->session->flashdata('report_success');
+    echo "\n</div>\n";
+  }
+?>
+
 <h1>URL <?php echo $url->id; ?><br/><span>(<?php echo ellipsize($url->url,100, 0.4); ?>)</span></h1>
 
 <?php if($url->overall_status == 'warning') : ?>
@@ -6,6 +14,7 @@
     <ul>
       <?php if($url->http_status != 200) :?><li>URL is a 404</li><?php endif; ?>
       <?php if($url->content_looks_like != 200) :?><li>Content looks broken</li><?php endif; ?>
+      <?php if($url->has_reported_problems) :?><li>Users have reported problems</li><?php endif;?>
     </ul>
   </div>
 <?php endif; ?>
@@ -15,6 +24,7 @@
 <ul class="nav nav-pills">
   <li class="active"><a href="#intro">Introduction &amp; Summary</a></li>
   <li><a href="#checks">URL Checks</a></li>
+  <li><a href="#reportedproblems">Reported problems</a></li>
   <li><a href="#urlchanges">URL Changes</a></li>
 </ul>
 
@@ -46,6 +56,7 @@
         </tbody>
       </table>
     </div>
+    <p><a href="<?php echo site_url(array('service-urls','report',$url->id)); ?>" class="btn btn-warning">Report a problem</a> with this URL</p>
   </div>
   <div class="span4">
     <div class="well">
@@ -88,6 +99,10 @@
             <tr>
               <td>Can 404?</td>
               <td><?php if($url->can_404) { echo '<span class="label label-success">Yes</span>'; } else { echo '<span class="label label-important">No</span>'; }?></td>
+            </tr>
+            <tr>
+              <td>Has reported problems?</td>
+              <td><?php if($url->has_reported_problems) { echo '<span class="label label-important">Yes</span>'; } else { echo '<span class="label label-success">No</span>'; }?></td>
             </tr>
           <?php endif; ?>
         </tbody>
@@ -135,6 +150,50 @@
   </table>
 <?php else : ?>
 <p>This URL has not yet been checked</p>
+<?php endif; ?>
+
+<hr/>
+
+<h2 id="reportedproblems">Reported problems</h2>
+
+<?php if($reports) : ?>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Notes</th>
+      <th>Alternative URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach($reports as $problem) : ?>
+      <tr>
+        <td>
+          <?php
+            switch($problem->status) {
+              case 'open' : echo '<span class="label label-important">Open</span>'; break;
+              case 'superseded' : echo '<span class="label label-inverse">Superseded</span>'; break;
+              case 'closed' : echo '<span class="label">Closed</span>'; break;
+              default: echo '<span class="label label-info">Unknown '.$problem->status.'</span>';
+            }
+          ?>
+        </td>
+        <td><?php echo date('d-M-Y H:i:s',mysql_to_unix($problem->created_date)); ?></td>
+        <td><?php echo $problem->report_type; ?></td>
+        <td><?php echo $problem->notes; ?>
+        <?php if($problem->alternative_url) : ?>
+          <td><a href="<?php echo $problem->alternative_url; ?>" title="<?php echo $problem->alternative_url; ?>"><?php echo ellipsize($problem->alternative_url,50, 0.4); ?></a></td>
+        <?php else : ?>
+          <td>n/a</td>
+        <?php endif; ?>
+      </tr>
+    <?php endforeach; ?>
+  </tbody>
+</table>
+<?php else : ?>
+  <p>This URL has no reports</p>
 <?php endif; ?>
 
 <hr/>
