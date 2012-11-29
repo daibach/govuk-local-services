@@ -42,7 +42,7 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
 $route['services/(:num)'] = "services/view/$1";
-$route['authorities/([a-zA-Z0-9]{4})'] = "authorities/view/$1";
+$route['authorities/([a-zA-Z0-9]{2,4})'] = "authorities/view/$1";
 $route['check-queues'] = "welcome/check-queues";
 $route['about'] = "welcome/about";
 /* End of file routes.php */
