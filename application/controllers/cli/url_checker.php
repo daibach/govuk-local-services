@@ -167,7 +167,8 @@ class Url_checker extends CI_Controller {
         preg_match("/cannot be found/i",$html) ||
         preg_match("/error 404/i",$html) ||
         preg_match("/not found/i",$html) ||
-        preg_match("/ 404[< ] /i",$html)
+        preg_match("/ 404[< ] /i",$html) ||
+        preg_match("/<title>.*?homepage.*?<\/title>/i",$html)
       ) {
         return 404; //think this is a 404
       } else {
