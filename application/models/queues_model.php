@@ -46,18 +46,6 @@ class Queues_model extends CI_Model {
     }
   }
 
-  function url_import_check_queue() {
-    $this->db->order_by('locked','desc');
-    $this->db->join('imports','imports.id=url_import_check_queue.import');
-    $query = $this->db->get('url_import_check_queue');
-    if($query->num_rows > 0) {
-      return $query->result();
-    } else {
-      return array();
-    }
-  }
-
-
 }
 /* End of file queues_model.php */
 /* Location: ./application/models/queues_model.php */

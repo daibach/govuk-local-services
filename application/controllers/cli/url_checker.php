@@ -18,28 +18,11 @@ class Url_checker extends CI_Controller {
     parent::__construct();
     $this->load->model('services_model','services');
     $this->load->model('urls_model','urls');
-    $this->load->model('imports_model','imports');
   }
 
 
   function index() {
     $this->check_from_service_queue();
-  }
-
-  function check_from_import_queue() {
-    if(ENVIRONMENT=='development' || $this->input->is_cli_request()) {
-
-      $timestamp = time();
-      $imports_to_test = $this->imports->get_imports_to_url_check($timestamp);
-
-      if($imports_to_test) {
-        foreach($imports_to_test as $import) {
-          $this->_test_import($import->import);
-          $this->imports->complete_url_import_check($timestamp,$import->import);
-        }
-      }
-
-    }
   }
 
   function check_from_service_queue() {
@@ -92,16 +75,6 @@ class Url_checker extends CI_Controller {
     if($local_services) {
       foreach($local_services as $s) {
         $this->services->request_url_checks_for_service($s->id);
-      }
-    }
-  }
-
-  function _test_import($import) {
-    $urls_to_test = $this->urls->get_urls_for_import($import);
-    if($urls_to_test) {
-      foreach($urls_to_test as $url) {
-        $this->_test_url($url);
-        sleep(1);
       }
     }
   }

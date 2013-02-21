@@ -28,7 +28,6 @@ class Load_urls extends CI_Controller {
       $import_id = $this->_register_new_import();
       $filename = $this->_download_file($import_id);
       $this->_process_csv($filename,$import_id);
-      $this->imports->queue_url_check($import_id);
 
     } else {
       die();

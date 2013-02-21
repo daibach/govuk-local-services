@@ -31,35 +31,6 @@ class Imports_model extends CI_Model {
 
   }
 
-  function queue_url_check($import) {
-    $this->db->insert('url_import_check_queue',array('import'=>$import));
-  }
-
-  function get_imports_to_url_check($timestamp) {
-
-    $data = array(
-      'locked' => $timestamp
-    );
-    $this->db->limit(1);
-    $this->db->update('url_import_check_queue',$data);
-
-    $this->db->select('import');
-    $this->db->where('locked',$timestamp);
-    $query = $this->db->get('url_import_check_queue');
-
-    if($query->num_rows() > 0) {
-      return $query->result();
-    } else {
-      return FALSE;
-    }
-  }
-
-  function complete_url_import_check($timestamp, $import) {
-    $this->db->where('locked',$timestamp);
-    $this->db->where('import',$import);
-    $this->db->delete('url_import_check_queue');
-  }
-
 }
 /* End of file imports_model.php */
 /* Location: ./application/models/imports_model.php */
