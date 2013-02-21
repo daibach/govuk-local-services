@@ -49,7 +49,7 @@ class Urls_model extends CI_Model {
       'last_tested'           => '0000-00-00 00:00:00',
       'overall_status'        => 'unknown',
       'imported_on'           => $import_id,
-      'user_reported_problem' => 0
+      'has_reported_problems' => 0
     );
     $this->db->where('id',$id);
     $this->db->update('service_urls',$data);
@@ -67,7 +67,7 @@ class Urls_model extends CI_Model {
     );
     $this->db->where('url_id',$id);
     $this->db->where('status','open');
-    $this->db->update('url_problems',$data);
+    $this->db->update('url_reports',$data);
 
   }
 
