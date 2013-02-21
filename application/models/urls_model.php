@@ -35,6 +35,8 @@ class Urls_model extends CI_Model {
     );
     $this->db->insert('service_urls',$data);
 
+    return $this->db->insert_id();
+
   }
 
   function update($id,$url,$existing_url,$import_id=0) {
