@@ -58,6 +58,22 @@ class Url_checker extends CI_Controller {
     }
   }
 
+  function check_from_status_queue() {
+    if(ENVIRONMENT=='development' || $this->input->is_cli_request()) {
+
+      $timestamp = time();
+
+      $urls_to_test = $this->urls->get_urls_to_status_check($timestamp);
+      if($urls_to_test) {
+        foreach($urls_to_test as $url) {
+          $this->_test_url($url);
+          $this->urls->complete_url_status_check($url->id);
+        }
+      }
+
+    }
+  }
+
   function spotcheck_lgsl($lgsl) {
     if(ENVIRONMENT=='development' || $this->input->is_cli_request()) {
       $this->_test_service($lgsl);

@@ -180,6 +180,36 @@ class Urls_model extends CI_Model {
 
   }
 
+  function get_urls_to_status_check($timestamp) {
+    $this->db->select('service_urls.*');
+    $this->db->where('locked',0);
+    $this->db->join('url_status_check_queue','url_status_check_queue.url_id=service_urls.id');
+    $this->db->order_by('url_status_check_queue.created_date, lgil, lgsl, snac');
+    $query = $this->db->get('service_urls',10);
+
+    if($query->num_rows() > 0) {
+      $rows = $query->result();
+
+      $urls_to_test = array();
+      foreach($rows as $r) {
+        array_push($urls_to_test,$r->id);
+      }
+
+      $this->db->where_in('url_id',$urls_to_test);
+      $this->db->update('url_status_check_queue',array('locked'=>$timestamp));
+
+      return $rows;
+    } else {
+      return FALSE;
+    }
+
+  }
+
+  function complete_url_status_check($url_id) {
+    $this->db->where('url_id',$url_id);
+    $this->db->delete('url_status_check_queue');
+  }
+
   function store_url_status($url_id,$url,$http_status,$looks_like,$jumbled_url,$jumbled_http_status) {
 
     $data = array(
