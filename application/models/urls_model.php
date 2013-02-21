@@ -73,6 +73,20 @@ class Urls_model extends CI_Model {
 
   }
 
+  function request_check($id,$requested_by='') {
+
+    $data = array(
+      'url_id'        => $id
+    );
+
+    if($requested_by != '') {
+      $data['requested_by'] = $requested_by;
+    }
+
+    $this->db->insert('url_status_check_queue',$data);
+
+  }
+
   function report($id,$type,$notes,$alternative_url) {
 
     $data = array(

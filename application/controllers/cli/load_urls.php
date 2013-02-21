@@ -91,17 +91,19 @@ class Load_urls extends CI_Controller {
 
       if($existing_url->url != $row_contents[$url_field]) {
         $this->urls->update($existing_url->id,$row_contents[$url_field],$existing_url->url,$import_id);
+        $this->urls->request_check($existing_url->id,'url_import');
       }
 
     } else {
 
-      $this->urls->create(
+      $url_id = $this->urls->create(
         $row_contents[$snac_field],
         $row_contents[$lgsl_field],
         $row_contents[$lgil_field],
         $row_contents[$url_field],
         $import_id
       );
+      $this->urls->request_check($existing_url->id,'url_import');
 
     }
     }
