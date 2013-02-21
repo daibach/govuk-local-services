@@ -33,6 +33,19 @@ class Queues_model extends CI_Model {
     }
   }
 
+  function url_status_check_queue() {
+    $this->db->select('url_status_check_queue.*, service_urls.lgsl, service_urls.lgil, service_urls.snac, local_authorities.name');
+    $this->db->order_by('locked','desc');
+    $this->db->join('service_urls','service_urls.id=url_status_check_queue.url_id');
+    $this->db->join('local_authorities','local_authorities.snac=service_urls.snac');
+    $query = $this->db->get('url_status_check_queue');
+    if($query->num_rows > 0) {
+      return $query->result();
+    } else {
+      return array();
+    }
+  }
+
   function url_import_check_queue() {
     $this->db->order_by('locked','desc');
     $this->db->join('imports','imports.id=url_import_check_queue.import');

@@ -40,7 +40,8 @@ class Welcome extends GOVUK_Controller {
 
     $data = array(
       'service_check_queue' => $this->queues->service_check_queue(),
-      'import_check_queue' => $this->queues->url_import_check_queue()
+      'import_check_queue' => $this->queues->url_import_check_queue(),
+      'url_status_check_queue' => $this->queues->url_status_check_queue()
     );
 
     $this->load->view('templates/header',$page_data);
