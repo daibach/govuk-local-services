@@ -95,14 +95,17 @@ class Load_urls extends CI_Controller {
 
     } else {
 
-      $url_id = $this->urls->create(
-        $row_contents[$snac_field],
-        $row_contents[$lgsl_field],
-        $row_contents[$lgil_field],
-        $row_contents[$url_field],
-        $import_id
-      );
-      $this->urls->request_check($existing_url->id,'url_import');
+      //skip licensing URLs
+      if(strtolower($row_contents[$url_field]) != "x") {
+        $url_id = $this->urls->create(
+          $row_contents[$snac_field],
+          $row_contents[$lgsl_field],
+          $row_contents[$lgil_field],
+          $row_contents[$url_field],
+          $import_id
+        );
+        $this->urls->request_check($url_id,'url_import');
+      }
 
     }
     }
