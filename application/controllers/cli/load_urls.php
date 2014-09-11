@@ -67,6 +67,9 @@ class Load_urls extends CI_Controller {
       //ignore first row
       if($row > 1) {
         $this->_process_row($row_contents,$import_id);
+        if($row % 20 == 0) {
+          sleep(0.25);
+        }
       }
       $row++;
     }
