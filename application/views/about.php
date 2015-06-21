@@ -21,7 +21,7 @@
   <li><a href="#dataupdates">Data updates</a></li>
   <li><a href="#limitations">Limitations</a></li>
   <li><a href="#nations">Wales/Scotland/Northern Ireland</a></li>
-  <li><a href="#licences">Licences</a></li>
+  <!--<li><a href="#licences">Licences</a></li>-->
 </ul>
 
 <hr/>
@@ -123,9 +123,11 @@
   <li>There isn't any monitoring to check that automated things are running</li>
 </ul>
 
+<!--
 <hr/>
 <h2 id="licences">Licences</h2>
 <p>Tests and reports for licences are much more experimental than those for
   local services. They also don't use live data as information isn't available
   to download/access via an API at the moment.</p>
 <p>I'll update this documentation when licences have received some more love.</p>
+-->

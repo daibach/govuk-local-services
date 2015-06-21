@@ -62,13 +62,13 @@
               <li><a href="<?php echo site_url('about'); ?>">About</a></li>
               <li><a href="<?php echo site_url('services'); ?>">Services</a></li>
               <li><a href="<?php echo site_url('authorities'); ?>">Local Authorities</a></li>
-              <li><a href="<?php echo site_url('licences'); ?>">Licences</a></li>
+              <!--<li><a href="<?php echo site_url('licences'); ?>">Licences</a></li>-->
               <li class="dropdown">
                 <a href="<?php echo site_url('about'); ?>" class="dropdown-toggle" data-toggle="dropdown">Reports <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="<?php echo site_url('service-urls/problem-urls'); ?>">Problem URLs</a></li>
                   <li><a href="<?php echo site_url('service-urls/update-list'); ?>">Recent URL Updates</a></li>
-                  <li><a href="<?php echo site_url('licences/problem-licences'); ?>">Problem Licences</a></li>
+                  <!--<li><a href="<?php echo site_url('licences/problem-licences'); ?>">Problem Licences</a></li>-->
                   <li><a href="<?php echo site_url('check-queues'); ?>">Queue Status</a></li>
                 </ul>
               </li>
