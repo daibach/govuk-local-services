@@ -26,7 +26,10 @@ class Load_authorities extends CI_Controller {
 
       $import_id = $this->_register_new_import();
       $filename = $this->_download_file($import_id);
-      $this->_process_csv($filename,$import_id);
+
+      if($this->_are_file_md5s_different($filename, $import_id)) {
+        $this->_process_csv($filename,$import_id);
+      }
 
     } else {
       die();
@@ -96,6 +99,21 @@ class Load_authorities extends CI_Controller {
     fclose($fp);
 
     return $filename;
+
+  }
+
+  function _are_file_md5s_different($filename, $import_id) {
+
+    $last_import_md5 = $this->imports->get_latest_file_md5('authorities');
+    $this_import_md5 = md5_file("./assets/importfiles/{$filename}");
+
+    $this->imports->store_md5_and_filename($import_id, $this_import_md5, $filename);
+
+    if($last_import_md5 != $this_import_md5) {
+      return true;
+    } else {
+      return false;
+    }
 
   }
 
