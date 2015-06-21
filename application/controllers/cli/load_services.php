@@ -52,6 +52,7 @@ class Load_services extends CI_Controller {
     $fp = fopen("./assets/importfiles/{$filename}", 'wb');
     curl_setopt($ch, CURLOPT_FILE, $fp);
     curl_setopt($ch, CURLOPT_HEADER, 0);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     curl_exec($ch);
     curl_close($ch);
     fclose($fp);
