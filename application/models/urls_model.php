@@ -123,6 +123,7 @@ class Urls_model extends CI_Model {
       'local_services.provided_unitary, '.
       'local_interactions.name as interaction_name, '.
       'local_authorities.name as authority_name, ' .
+      'local_authorities.country as authority_country, '.
       'local_authorities.type as authority_type');
     $this->db->where('service_urls.id',$id);
     $this->db->join('local_services','local_services.id=service_urls.lgsl');
@@ -339,6 +340,7 @@ class Urls_model extends CI_Model {
       'local_services.provided_unitary, local_interactions.name as interaction, '.
       'local_interactions.shortname as interaction_short, '.
       'local_authorities.name as authority, '.
+      'local_authorities.country as authority_country, '.
       'local_authorities.type as authority_type');
     $this->db->join('local_services','local_services.id=service_urls.lgsl','inner');
     $this->db->join('local_interactions','local_interactions.id=service_urls.lgil','inner');

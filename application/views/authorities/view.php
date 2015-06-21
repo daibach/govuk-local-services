@@ -21,6 +21,10 @@
         <td><strong>Postcode</strong></td>
         <td><?php echo $authority->postcode; ?></td>
       </tr>
+      <tr>
+        <td><strong>Country</strong></td>
+        <td><?php echo format_flag($authority->country);?> <?php echo $authority->country; ?></td>
+      </tr>
     </tbody>
   </table>
 </div>

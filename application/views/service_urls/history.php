@@ -51,7 +51,7 @@
           </tr>
           <tr>
             <td><strong>Authority</strong></td>
-            <td><a href="<?php echo site_url(array('authorities',$url->snac));?>"><?php echo $url->snac; ?> <?php echo $url->authority_name; ?></a> (<?php echo $url->authority_type; ?>)</td>
+            <td><a href="<?php echo site_url(array('authorities',$url->snac));?>"><?php echo format_flag($url->authority_country);?> <?php echo $url->snac; ?> <?php echo $url->authority_name; ?></a> (<?php echo $url->authority_type; ?>)</td>
           </tr>
         </tbody>
       </table>

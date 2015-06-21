@@ -10,6 +10,7 @@
     <thead>
       <tr>
         <th>SNAC</th>
+        <th><abbr title="Country">Cty</abbr></th>
         <th>Authority</th>
         <th>Service</th>
         <th>Interaction</th>
@@ -22,6 +23,7 @@
   <?php foreach($problem_urls as $url) : ?>
       <tr class="<?php echo will_url_be_used($url->authority_type,$url->provided_district, $url->provided_county, $url->provided_unitary); ?>">
         <td><a href="<?php echo site_url(array('authorities',$url->snac)); ?>"><?php echo $url->snac; ?></a></td>
+        <td><?php echo format_flag($url->authority_country);?></td>
         <td><?php echo $url->authority; ?> (<?php echo $url->authority_type; ?>)</td>
         <td><a href="<?php echo site_url(array('services',$url->lgsl)); ?>" title="<?php echo $url->service; ?>"><?php echo $url->lgsl; ?></a></td>
         <td><?php echo $url->interaction_short.' ('.$url->lgil.')'?></td>
