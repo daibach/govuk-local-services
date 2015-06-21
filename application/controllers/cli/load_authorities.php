@@ -67,7 +67,7 @@ class Load_authorities extends CI_Controller {
 
   function _get_info_from_mapit($snac) {
 
-    $url = "http://mapit.preview.alphagov.co.uk/area/${snac}.json";
+    $url = "http://mapit.mysociety.org/area/${snac}.json";
 
     try {
       $file = file_get_contents($url);
