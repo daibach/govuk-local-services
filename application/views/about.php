@@ -1,4 +1,4 @@
-<h1>About the GOV.UK Local Services Explorer</h1>
+<h1>About the UK Local Gov Services Explorer</h1>
 
 <p><a href="https://www.gov.uk">GOV.UK</a> provides many links to local
   services run by local government in the UK (for example
