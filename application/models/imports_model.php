@@ -52,7 +52,7 @@ class Imports_model extends CI_Model {
       $row = $query->row();
       return $row->filemd5;
     } else {
-      return 0;
+      return NULL;
     }
 
   }
