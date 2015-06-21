@@ -45,14 +45,20 @@ class Load_authorities extends CI_Controller {
       foreach($authorities as $a) {
 
         $atype = 'CTY';
+        $country = 'England';
 
         if(strlen($a->snac) > 2) {
-          $atype = $this->_get_info_from_mapit($a->snac);
+          $mapit_data = $this->_get_info_from_mapit($a->snac);
+          $atype = $mapit_data->type;
+          $country = $mapit_data->country_name;
         } else {
           $atype = 'CTY';
         }
 
-        $data = array('type'=>$atype);
+        $data = array(
+          'type'    => $atype,
+          'country' => $country
+        );
         $this->db->where('id',$a->id);
         $this->db->update('local_authorities',$data);
         sleep(0.25);
@@ -76,7 +82,7 @@ class Load_authorities extends CI_Controller {
         return false;
       } else {
         $json = json_decode($file);
-        return $json->type;
+        return $json;
       }
 
     } catch (Exception $e) {
