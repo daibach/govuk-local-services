@@ -14,6 +14,52 @@ class Service_urls extends GOVUK_Controller {
 
   }
 
+  public function update_list() {
+    $updated_dates = $this->urls->get_update_dates();
+
+    $page_data = array(
+      'page_title'    => "Recent URL updates",
+      'breadcrumbs'   => array(
+        array('title'=>'Service URLs','link'=>'services'),
+        array('title'=>'Recent URL Updates','link'=>'service-urls/update-list'),
+      )
+    );
+
+    $data = array(
+      'dates' => $updated_dates
+    );
+
+    $this->load->view('templates/header', $page_data);
+    $this->load->view('service_urls/updates', $data);
+    $this->load->view('templates/footer');
+
+  }
+
+  public function recent_updates($date) {
+    if(! preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$date)) {
+      show_404(current_url());
+    }
+    $urls = $this->urls->urls_updated_on($date);
+
+    $page_data = array(
+      'page_title'    => "URLs updated on {$date}",
+      'breadcrumbs'   => array(
+        array('title'=>'Service URLs','link'=>'services'),
+        array('title'=>'Recent URL Updates','link'=>'service-urls/update-list'),
+        array('title'=>"Updates on {$date}",'link'=>'service-urls/recent-updates/'.$date),
+      )
+    );
+
+    $data = array(
+      'date' => $date,
+      'urls' => $urls
+    );
+
+    $this->load->view('templates/header', $page_data);
+    $this->load->view('service_urls/updated_urls', $data);
+    $this->load->view('templates/footer');
+  }
+
   public function report($id) {
     $url = $this->urls->find_info($id);
 

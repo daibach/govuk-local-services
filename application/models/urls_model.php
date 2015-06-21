@@ -357,6 +357,44 @@ class Urls_model extends CI_Model {
 
   }
 
+  function get_update_dates() {
+
+    $this->db->distinct();
+    $this->db->select('DATE(created_date) as d');
+    $this->db->order_by('d desc');
+    $query = $this->db->get('url_history');
+    if($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return FALSE;
+    }
+  }
+
+  function urls_updated_on($updated_date) {
+    $start_date = new DateTime($updated_date);
+    $end_date = new DateTime($updated_date);
+    $end_date->modify('+1 day');
+
+    $this->db->select('authority.snac, authority.name, authority.country, '.
+      'url.lgsl, lgsl.description, url.lgil, lgil.shortname, url.overall_status, '.
+      'url_history.original, url_history.new, url.id');
+    $this->db->join('service_urls url','url_history.url_id=url.id','inner');
+    $this->db->join('local_authorities authority','url.snac=authority.snac','inner');
+    $this->db->join('local_services lgsl','url.lgsl=lgsl.id','inner');
+    $this->db->join('local_interactions lgil','url.lgil=lgil.id','inner');
+    $this->db->where('url_history.created_date >=',$start_date->format('Y-m-d'));
+    $this->db->where('url_history.created_date <',$end_date->format('Y-m-d'));
+
+    $this->db->order_by('url.snac, url.lgsl, url.lgil');
+
+    $query = $this->db->get('url_history');
+    if($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return FALSE;
+    }
+  }
+
 }
 /* End of file urls_model.php */
 /* Location: ./application/models/urls_model.php */
