@@ -39,22 +39,28 @@ class Load_authorities extends CI_Controller {
 
   function identify_types() {
 
-    $authorities = $this->authorities->all();
-    foreach($authorities as $a) {
+    if(ENVIRONMENT=='development' || $this->input->is_cli_request()) {
 
-      $atype = 'CTY';
+      $authorities = $this->authorities->all();
+      foreach($authorities as $a) {
 
-      if(strlen($a->snac) > 2) {
-        $atype = $this->_get_info_from_mapit($a->snac);
-      } else {
         $atype = 'CTY';
+
+        if(strlen($a->snac) > 2) {
+          $atype = $this->_get_info_from_mapit($a->snac);
+        } else {
+          $atype = 'CTY';
+        }
+
+        $data = array('type'=>$atype);
+        $this->db->where('id',$a->id);
+        $this->db->update('local_authorities',$data);
+        sleep(0.25);
+
       }
 
-      $data = array('type'=>$atype);
-      $this->db->where('id',$a->id);
-      $this->db->update('local_authorities',$data);
-      sleep(0.25);
-
+    } else {
+      die();
     }
 
   }
