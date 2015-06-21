@@ -33,6 +33,7 @@
     <tr>
       <th>Status</th>
       <th>SNAC</th>
+      <th><abbr title="Country">Cty</abbr></th>
       <th>Authority</th>
       <th>Interaction</th>
       <th>URL</th>
@@ -55,6 +56,7 @@
         ?>
       </td>
       <td><?php echo $url->snac; ?></td>
+      <td><?php echo format_flag($url->country);?></td>
       <td><?php echo $url->authority; ?> (<?php echo $url->type; ?>)</td>
       <td><?php echo $url->interaction_short.' ('.$url->lgil.')'?></td>
       <td><a href="<?php echo $url->url; ?>" title="<?php echo $url->url; ?>"><?php echo ellipsize($url->url,35, 0.4); ?></a></td>
@@ -90,6 +92,7 @@
   <thead>
     <tr>
       <th>SNAC</th>
+      <th><abbr title="Country">Cty</abbr></th>
       <th>Authority</th>
     </tr>
   </thead>
@@ -97,6 +100,7 @@
 <?php foreach($missing_authorities as $authority) : ?>
     <tr class="<?php echo will_url_be_used($authority->type,$service->provided_district, $service->provided_county, $service->provided_unitary); ?>">
       <td><?php echo $authority->snac; ?></td>
+      <td><?php echo format_flag($authority->country);?></td>
       <td><?php echo $authority->name; ?> (<?php echo $authority->type; ?>)</td>
     </tr>
 <?php endforeach; ?>

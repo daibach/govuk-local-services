@@ -113,6 +113,11 @@ function is_service_valid($authority_type,$service_is_district,$service_is_count
 
 }
 
+function format_flag($country) {
+  $country_file = strtolower(str_replace(' ','-',$country));
+  return '<img class="flag" width="16" height="16" alt="'.$country.'" src="/css/'.$country_file.'.png" />';
+}
+
 function format_licence_type($type) {
   switch($type) {
     case "non-local": return "Non-local, external"; break;

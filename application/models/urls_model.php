@@ -247,6 +247,7 @@ class Urls_model extends CI_Model {
   function get_url_status_for_lgsl($lgsl) {
     $this->db->select(
       'local_authorities.snac, local_authorities.name as authority, ' .
+      'local_authorities.country, '.
       'local_authorities.type, urls.lgsl, urls.lgil, ' .
       'interactions.shortname as interaction_short, ' .
       'interactions.name as interaction, urls.id as url_id, urls.url, ' .
