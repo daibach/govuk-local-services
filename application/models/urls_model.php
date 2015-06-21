@@ -186,7 +186,7 @@ class Urls_model extends CI_Model {
     $this->db->where('locked',0);
     $this->db->join('url_status_check_queue','url_status_check_queue.url_id=service_urls.id');
     $this->db->order_by('url_status_check_queue.created_date, lgil, lgsl, snac');
-    $query = $this->db->get('service_urls',10);
+    $query = $this->db->get('service_urls',200);
 
     if($query->num_rows() > 0) {
       $rows = $query->result();
