@@ -56,7 +56,7 @@
     </tr>
   </thead>
   <tbody>
-<?php foreach($urls as $url) : ?>
+<?php if(! empty($urls)) : foreach($urls as $url) : ?>
     <tr class="<?php echo will_url_be_used($authority->type,$url->provided_district, $url->provided_county, $url->provided_unitary); ?>">
       <td>
         <?php
@@ -91,7 +91,7 @@
       <?php endif; ?>
       <td><a href="<?php echo site_url(array('service-urls','history',$url->url_id)); ?>" class="btn">History</a></td>
     </tr>
-<?php endforeach; ?>
+<?php endforeach; endif; ?>
   </tbody>
 </table>
 
