@@ -57,7 +57,7 @@
       </td>
       <td><?php echo $url->snac; ?></td>
       <td><?php echo format_flag($url->country);?></td>
-      <td><?php echo $url->authority; ?> (<?php echo $url->type; ?>)</td>
+      <td><?php echo $url->authority; ?> (<?php if(empty($url->type)) { echo ' ? '} else { echo $url->type }; ?>)</td>
       <td><?php echo $url->interaction_short.' ('.$url->lgil.')'?></td>
       <td><a href="<?php echo $url->url; ?>" title="<?php echo $url->url; ?>"><?php echo ellipsize($url->url,35, 0.4); ?></a></td>
       <?php if($url->http_status) : ?>
