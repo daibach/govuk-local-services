@@ -79,6 +79,7 @@
     </div>
     <div id="page">
       <div class="container">
+        <div class="alert-mothball"><strong>This service is no longer maintained.</strong> Local Directgov closed on 30 August 2016. The data on this site is now out of date and inaccurate.</div>
         <div class="alert-alpha"><strong>ALPHA</strong> - This app is under active development &amp; could be inaccurate or broken</div>
         <?php if(isset($breadcrumbs)) : ?>
           <div id="breadcrumbs">

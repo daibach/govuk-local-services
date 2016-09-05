@@ -5,7 +5,10 @@ h1 { margin-bottom: 1em;}
 h1 span { font-weight: normal; font-size: 0.6em; line-height: 0.2em; }
 .alert ul { margin-top: 1em;}
 
-.alert-alpha { background: #D43783; color: #fff; border: 0; padding: 8px 35px 8px 14px; margin-bottom: 20px; border-radius: 4px; }
+.alert-alpha { background: #BFC1C3; color: #fff; border: 0; padding: 8px 35px 8px 14px; margin-bottom: 20px; border-radius: 4px; }
+.alert-mothball { background: #B10E1E; color: #fff; font-size: 2.2em; line-height: 1.2em; border: 0; padding: 3em 1em; margin-bottom: 2em; border-radius: 4px; }
+.alert-mothball strong { display: block; margin-bottom: 20px; }
+
 
 .navbar .brand { color: #fff; }
 .navbar .brand span { color: #D43783; }
